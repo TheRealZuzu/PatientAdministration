@@ -26,4 +26,11 @@ public class Warteschlange
         }
         n--;
     }
+    
+    
+    public void ausgeben(){
+        for(int i = 0; i < n; i++){
+            System.out.println(patienten[i].name);
+        }
+    }
 }
