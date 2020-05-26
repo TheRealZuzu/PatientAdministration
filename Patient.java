@@ -7,8 +7,11 @@
  */
 public class Patient
 {
-    public Patient()
+    public String name;
+    public boolean privatversichert;
+    
+    public Patient(String name)
     {
-
+        this.name = name;
     }
 }
