@@ -26,6 +26,6 @@ public class Patient
     }
     
     public String toString(){
-        return name;
+        return name+" Privatversichert "+privatversichert;
     }
 }
