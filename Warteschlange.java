@@ -10,6 +10,30 @@ public class Warteschlange
         n = 0;
     }
     
+    
+    public String[] fromString(String s){
+        int patientCount = 0;
+        
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == '|'){
+               patientCount++; 
+            }
+        }
+        
+        String[] p = new String[patientCount];
+        int k = 0;
+        
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) != '|'){
+                p[k] += s.charAt(i);
+            }else{
+                k++;
+            }
+        }
+        
+        return p;
+    }
+    
     public int anmelden(Patient p)
     {
         if(n < N){
@@ -27,16 +51,19 @@ public class Warteschlange
         n--;
     }
     
-    public void insert(Patient p, int k){
+    public int insert(Patient p, int k){
         if(k <= n){
             for(int i = k+1; i < n; i++){
                 patienten[i-1] = patienten[i];
             }
             patienten[k] = p;
+            n++;
+            return n;
         }
+        return n;
     }
     
-    public void sort(){//Privatpatienten nach vorne
+    public void sort(){//Privatpatienten nach vorne wie es sich gehoert
         Patient[] priv = new Patient[N];
         int privL = 0;
         Patient[] pub = new Patient[N];
@@ -66,5 +93,16 @@ public class Warteschlange
         for(int i = 0; i < n; i++){
             System.out.println(patienten[i]);
         }
+    }
+    
+    
+    public String toString(){
+      String s = "";
+      
+      for(int i = 0; i < n; i++){
+           s += patienten[i];
+           s += "|";
+      }
+      return s;
     }
 }
