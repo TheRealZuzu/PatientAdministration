@@ -22,12 +22,15 @@ public class Warteschlange
         
         String[] p = new String[patientCount];
         int k = 0;
-        
+        p[0]  = "";
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) != '|'){
                 p[k] += s.charAt(i);
             }else{
-                k++;
+                if(i != s.length()-1){
+                    k++;
+                    p[k] = "";
+                }
             }
         }
         
