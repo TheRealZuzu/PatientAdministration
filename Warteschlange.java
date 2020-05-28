@@ -30,7 +30,7 @@ public class Warteschlange
     
     public void ausgeben(){
         for(int i = 0; i < n; i++){
-            System.out.println(patienten[i].name);
+            System.out.println(patienten[i]);
         }
     }
 }
