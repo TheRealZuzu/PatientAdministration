@@ -23,14 +23,14 @@ public class Warteschlange
         String[] p = new String[patientCount];
         int k = 0;
         p[0]  = "";
-        for(int i = 0; i < s.length(); i++){
+        for(int i = 0; i < s.length()-1; i++){
             if(s.charAt(i) != '|'){
                 p[k] += s.charAt(i);
             }else{
-                if(i != s.length()-1){
-                    k++;
-                    p[k] = "";
-                }
+                 System.out.println(p[k]);
+                 System.out.println(k+" "+" "+p.length);
+                 k++;
+                 p[k] = "";
             }
         }
         
@@ -56,8 +56,8 @@ public class Warteschlange
     
     public int insert(Patient p, int k){
         if(k <= n){
-            for(int i = k+1; i < n; i++){
-                patienten[i-1] = patienten[i];
+            for(int i = n; i >= k; i--){
+                patienten[i+1] = patienten[i];
             }
             patienten[k] = p;
             n++;
