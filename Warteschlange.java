@@ -10,6 +10,17 @@ public class Warteschlange
         n = 0;
     }
     
+    public int cancel(int ind){
+        if(ind < n){
+            for(int i = ind; i < n-1; i++){
+                patienten[i] = patienten[i+1];
+            }
+            n++;
+            return n;
+        }
+        return n;
+    }
+    
     
     public String[] fromString(String s){
         int patientCount = 0;

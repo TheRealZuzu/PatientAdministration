@@ -1,9 +1,18 @@
-public class TestWarteschlange
-{
-    public Warteschlange w = new Warteschlange(1000);
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+//Unit test zeigt nicht automatisch konsole an
+public class WarteschlangeTest
+{   
+    @Test
+    public void testWarteschlange() 
+    {
+        Warteschlange w = new Warteschlange(1000);
     
-    public TestWarteschlange(){
-        System.out.println("New Test: ");
+    
+        System.out.println("New Unit Test: ");
         for(int i = 0; i < 20; i++){
             Patient p = new Patient("patientNr"+i);
             p.privatversichert = Math.round(Math.random()) == 1;
@@ -35,5 +44,6 @@ public class TestWarteschlange
         w.sort();
         
         w.ausgeben();
+        assertEquals(1,1);
     }
 }
