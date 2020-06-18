@@ -13,7 +13,7 @@ public class Patient
     public boolean maennlich;
     
     
-    public Patient(String name)
+    public Patient(String name)//for tests only
     {
         this.name = name;
     }

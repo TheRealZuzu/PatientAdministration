@@ -119,4 +119,54 @@ public class Warteschlange
       }
       return s;
     }
+    
+    
+    public Patient[] searchByName(String searched){
+        Patient[] resR = new Patient[n];
+        int c = 0;
+        for(int i = 0; i < n; i++){
+            if(patienten[i].name.equals(searched)){
+                resR[c] = patienten[i];
+                c++;
+            }
+        }
+        
+        if(c == 0){
+            return null;
+        }
+        
+        Patient[] res = new Patient[c];
+        
+        for(int i = 0; i < c; i++){
+            res[i] = resR[i];
+        }
+        
+        return res;
+    }
+    
+    public float similar(String toCompare, String term){
+        float res = 0;
+        int count = 0;
+        for(int i = 0; i < toCompare.length(); i++){
+            if(toCompare.charAt(i) == term.charAt(0)){
+               count = 1;
+               System.out.println("found for "+term.charAt(0)+" and "+toCompare.charAt(i));
+               for(int j = 1; j < term.length(); j++){
+                   if(toCompare.charAt(i+j)==term.charAt(j)){
+                       System.out.println("found for "+term.charAt(j)+" and "+toCompare.charAt(i+j));
+                       count++;
+                   }else{
+                       i += j;
+                       break;
+                   }
+                   if(j == term.length()-1){
+                       return 1;
+                    }
+               }
+               res += ((float)(count))/((float)(toCompare.length()));
+               count = 0;
+            }
+        }
+        return res;
+    }
 }
