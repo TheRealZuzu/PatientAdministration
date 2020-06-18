@@ -159,9 +159,6 @@ public class Warteschlange
                        i += j;
                        break;
                    }
-                   if(j == term.length()-1){
-                       return 1;
-                    }
                }
                res += ((float)(count))/((float)(toCompare.length()));
                count = 0;
