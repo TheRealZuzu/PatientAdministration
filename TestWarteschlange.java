@@ -43,9 +43,9 @@ public class TestWarteschlange
         
         printPArr(r);
         
-        System.out.println("Comparing Maier & Maie");
+        System.out.println("Comparing Maier & Meier");
         
-        System.out.println(w.similar("Maier","Maie"));
+        System.out.println(w.similar("Maier","Meier"));
     }
     
     private void printPArr(Patient[] p){

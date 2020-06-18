@@ -156,7 +156,7 @@ public class Warteschlange
                        System.out.println("found for "+term.charAt(j)+" and "+toCompare.charAt(i+j));
                        count++;
                    }else{
-                       i += j;
+                       i += j-1;
                        break;
                    }
                }
