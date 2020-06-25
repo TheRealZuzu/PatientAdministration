@@ -39,13 +39,13 @@ public class TestWarteschlange
         
         System.out.println("Search Test: ");
         
-        Patient[] r = w.searchByName("patientNr14");
+        Patient[] r = w.searchByName("patientNr18");
         
         printPArr(r);
         
-        System.out.println("Comparing Maier & Meier");
+        System.out.println("Comparing Meier & Meier");
         
-        System.out.println(w.similar("Maier","Meier"));
+        System.out.println(w.similar("Meier","Meier"));
     }
     
     private void printPArr(Patient[] p){

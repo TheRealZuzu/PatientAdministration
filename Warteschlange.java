@@ -145,25 +145,50 @@ public class Warteschlange
     }
     
     public float similar(String toCompare, String term){
-        float res = 0;
-        int count = 0;
+        float r = 0;
+        float a = 1/(float)(term.length());
         for(int i = 0; i < toCompare.length(); i++){
             if(toCompare.charAt(i) == term.charAt(0)){
-               count = 1;
-               System.out.println("found for "+term.charAt(0)+" and "+toCompare.charAt(i));
-               for(int j = 1; j < term.length(); j++){
-                   if(toCompare.charAt(i+j)==term.charAt(j)){
-                       System.out.println("found for "+term.charAt(j)+" and "+toCompare.charAt(i+j));
-                       count++;
-                   }else{
-                       i += j-1;
-                       break;
-                   }
-               }
-               res += ((float)(count))/((float)(toCompare.length()));
-               count = 0;
+                r += a;
+                for(int j = 1; j < term.length(); j++){
+                    if(toCompare.charAt(i+j) == term.charAt(j)){
+                        r += a;
+                    }else{
+                        i += j;
+                        break;
+                    }
+                }
             }
         }
-        return res;
+        return r;
+    }
+    
+    public int similarV2(String toCompare, String term){
+        if(term.length()>toCompare.length()){
+            return similarV2(term,toCompare);
+        }
+        
+        int[] counts = new int[toCompare.length()-term.length()+1];
+        
+        for(int i = 0; i < toCompare.length()-term.length()+1; i++){
+            counts[i] = unequals(term,toCompare.substring(i,i+term.length()));
+        }
+        
+        return lowest(counts);
+    }
+    
+    public int unequals(String s1, String s2){
+        int r = 0;
+        for(int i = 0; i < s1.length(); i++){
+            if(s1.charAt(i)!=s2.charAt(i)){
+                r++;
+            }
+        }
+        return r;
+    }
+    
+    public int lowest(int[] a){
+        return 0;
+        //TODO; returns lowest
     }
 }
