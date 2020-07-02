@@ -144,28 +144,9 @@ public class Warteschlange
         return res;
     }
     
-    public float similar(String toCompare, String term){
-        float r = 0;
-        float a = 1/(float)(term.length());
-        for(int i = 0; i < toCompare.length(); i++){
-            if(toCompare.charAt(i) == term.charAt(0)){
-                r += a;
-                for(int j = 1; j < term.length(); j++){
-                    if(toCompare.charAt(i+j) == term.charAt(j)){
-                        r += a;
-                    }else{
-                        i += j;
-                        break;
-                    }
-                }
-            }
-        }
-        return r;
-    }
-    
-    public int similarV2(String toCompare, String term){
+    public int similar(String toCompare, String term){
         if(term.length()>toCompare.length()){
-            return similarV2(term,toCompare);
+            return similar(term,toCompare);
         }
         
         int[] counts = new int[toCompare.length()-term.length()+1];
@@ -188,7 +169,12 @@ public class Warteschlange
     }
     
     public int lowest(int[] a){
-        return 0;
-        //TODO; returns lowest
+        int lowest = a[0];
+        for(int i = 0; i < a.length; i++){
+            if(a[i] < lowest){
+                lowest = a[i];
+            }
+        }
+        return lowest;
     }
 }

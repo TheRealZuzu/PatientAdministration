@@ -43,9 +43,9 @@ public class TestWarteschlange
         
         printPArr(r);
         
-        System.out.println("Comparing Meier & Meier");
+        System.out.println("Comparing Ho Chin Ming & Meier");
         
-        System.out.println(w.similar("Meier","Meier"));
+        System.out.println(w.similar("Ho Chin Ming","Meier"));
     }
     
     private void printPArr(Patient[] p){
