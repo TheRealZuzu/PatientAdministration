@@ -3,6 +3,7 @@ public class Warteschlange
     public Patient[] patienten;
     public int N;
     int n;
+    
     public Warteschlange(int length)
     {
         N = length;
